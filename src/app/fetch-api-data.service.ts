@@ -6,35 +6,36 @@ import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://myflix-jonathon.herokuapp.com/';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class FetchApiDataService {
  // Inject the HttpClient module to the constructor params
  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
  // Making the api call for the user registration endpoint
-  public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
-    return this.http.post(apiUrl + 'users', userDetails).pipe(
+  public userRegistration(userData: any): Observable<any> {
+    console.log(userData);
+    return this.http.post(apiUrl + 'users', userData).pipe(
     catchError(this.handleError)
     );
   }
 
   // User login
-  public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
-    return this.http.post(apiUrl + 'login', userDetails).pipe(
+  public userLogin(userData: any): Observable<any> {
+    console.log(userData);
+    return this.http.post(apiUrl + 'login', userData).pipe(
     catchError(this.handleError)
     );
   }
 
   // Delete user profile
-  public deleteUser(userDetails: any): Observable<any> {
-    console.log(userDetails);
-    return this.http.delete(apiUrl + 'users/:Username', userDetails).pipe(
+  public deleteUser(userData: any): Observable<any> {
+    console.log(userData);
+    return this.http.delete(apiUrl + 'users/:Username', userData).pipe(
     catchError(this.handleError)
     );
   }
@@ -129,7 +130,7 @@ export class FetchApiDataService {
   }
 
   // Non-typed response extraction
-  private extractResponseData(res: any): any { // private extractResponseData(res: Response): any { <- this was sample given so not sure where issue is but any seems to be ok
+  private extractResponseData(res: any): any {
     const body = res;
     return body || { };
   }
