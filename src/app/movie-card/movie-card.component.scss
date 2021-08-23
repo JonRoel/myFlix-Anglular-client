@@ -1,0 +1,23 @@
+.mat-card {
+  min-width:260px;
+}
+.favorite-button {
+  float:right;
+}
+.mat-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left:25px;
+  margin-right: 25px;
+}
+
+::ng-deep .mat-card-header-text {
+  margin: 10px 0px !important ;
+}

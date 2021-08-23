@@ -13,7 +13,7 @@ export class UserLoginFormComponent implements OnInit {
 
   @Input() userData = { 
     Username: '', 
-    Password: ''
+    Password: '',
   } 
 
   constructor(
@@ -32,7 +32,7 @@ export class UserLoginFormComponent implements OnInit {
       this.dialogRef.close();
 
       // Set username and password for locall storage
-      localStorage.setItem('username', JSON.stringify(result.user.username));
+      localStorage.setItem('username', result.username);
       localStorage.setItem('token', result.token);
 
       // Will most likely reditrect but for now can leave a note

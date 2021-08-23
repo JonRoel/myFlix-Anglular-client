@@ -3,8 +3,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-@Component({ // Decorator - Compenent is used to tell angular the class below is a component (export class...)
-  selector: 'app-user-registration-form', // Defines cutom HTML Component
+@Component({ 
+  selector: 'app-user-registration-form', 
   templateUrl: './user-registration-form.component.html',
   styleUrls: ['./user-registration-form.component.scss']
 })
@@ -15,7 +15,8 @@ export class UserRegistrationFormComponent implements OnInit {
     Username: '', 
     Password: '', 
     Email: '', 
-    Birthday: '',} // @ is another decorator Input defines components inputs
+    Birthday: '',
+  };
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -23,19 +24,19 @@ export class UserRegistrationFormComponent implements OnInit {
     public snackBar: MatSnackBar,
   ) { }
 
-  ngOnInit(): void { // Gets called when all its inputs are received
-  }
+  ngOnInit(): void { }
+
   // Function to send the form inputs to the Database
   registerUser(): void {
-    this.fetchApiData.userRegistration(this.userData).subscribe((response) => { // Calls the userData defined above and passes it into the function
+    this.fetchApiData.userRegistration(this.userData).subscribe((result) => { 
       // Logic for successful user registration
       this.dialogRef.close();
-      console.log(response)
-      this.snackBar.open(response, 'Successfully Registered', {
+      console.log(result)
+      this.snackBar.open(result, 'Successfully Registered you can now login!', {
         duration: 3000
       });
-    }, (response) => {
-      this.snackBar.open(response, 'OK', {
+    }, (result) => {
+      this.snackBar.open(result, 'OK', {
         duration: 3000
       });
     })
