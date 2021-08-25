@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -6,15 +6,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
+import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.component';
 
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.scss']
+  styleUrls: ['./movie-card.component.scss'],
+  //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieCardComponent implements OnInit {
-  movies: any[] = [];
-  
+  movies: any[] = []
+  faves: any[] = []
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -23,6 +26,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getUsersFavs();
   }
 
   getMovies(): void {
@@ -44,6 +48,50 @@ export class MovieCardComponent implements OnInit {
     this.dialog.open(MovieDirectorComponent, {
       data: {name, bio, birthyear},
       width: '650px'
+    });
+  }
+
+  openMovieSynopsis(Title: string, description: string): void {
+    this.dialog.open(MovieSynopsisComponent, {
+      data: { Title, description },
+      width: '650px'
+    });
+  }
+
+  addToFavoriteMoviesList(id: string, Title: string): void {
+    this.fetchApiData.addToFavoriteMoviesList(id).subscribe((res: any) => {
+      let favMovies = res.Favorites;
+
+      this.snackBar.open(`${Title} has been added to favorties`, 'OK', {
+        duration: 3000,
+      })
     })
   }
+
+  removeFromFavorites(id: string, Title: string): void {
+   this.fetchApiData.removeFavoriteMovie(id).subscribe((res: any) => {
+     let favMovies = res.Favorites;
+     this.snackBar.open(`${Title} has been removed from favorties`, 'OK', {
+       duration: 3000,
+     })
+   })
+  }
+
+  getUsersFavs(): void {
+    const user = localStorage.getItem('username');
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.faves = resp.Favorites;
+      console.log(this.faves);
+      return this.faves;
+    });
+  }
+
+  setFaveStatus(id: any): any {
+    if (this.faves.includes(id)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

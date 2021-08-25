@@ -28,15 +28,15 @@ export class UserRegistrationFormComponent implements OnInit {
 
   // Function to send the form inputs to the Database
   registerUser(): void {
-    this.fetchApiData.userRegistration(this.userData).subscribe((result) => { 
+    this.fetchApiData.userRegistration(this.userData).subscribe((response) => { 
       // Logic for successful user registration
       this.dialogRef.close();
-      console.log(result)
-      this.snackBar.open(result, 'Successfully Registered you can now login!', {
+      console.log(response)
+      this.snackBar.open(this.userData.Username, 'Successfully Registered you can now login!', {
         duration: 3000
       });
-    }, (result) => {
-      this.snackBar.open(result, 'OK', {
+    }, (response) => {
+      this.snackBar.open(response, 'OK', {
         duration: 3000
       });
     })

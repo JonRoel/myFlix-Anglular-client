@@ -54,9 +54,10 @@ export class FetchApiDataService {
   }
 
   // Get User Profile
-  getUser(): Observable<any> {
+  getUser(user: any): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users/:Username', {headers: new HttpHeaders(
+    //const user = localStorage.getItem('username');
+    return this.http.get(apiUrl + 'users/' + user, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
@@ -71,7 +72,8 @@ export class FetchApiDataService {
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
-      catchError(this.handleError)
+        map(this.extractResponseData),
+        catchError(this.handleError)
     );
   }
 
@@ -109,31 +111,35 @@ export class FetchApiDataService {
   }
 
   // Add Movie to Favorites
-  addToFavoriteMoviesList(): Observable<any> {
+  public addToFavoriteMoviesList(id: string): Observable<any> {
+    const user = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users/addtofavs/:Username/:MovieID', {headers: new HttpHeaders(
+    return this.http.post(apiUrl + 'users/addtofavs/' + user + '/' + id, id, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
-      catchError(this.handleError)
+        map(this.extractResponseData),
+        catchError(this.handleError)
     );
   }
 
   // Remove Movie to Favorites
-  removeFavoriteMovie(): Observable<any> {
+  removeFavoriteMovie(id: string): Observable<any> {
+    const user = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users/removefromfavs/:Username/:MovieID', {headers: new HttpHeaders(
+    return this.http.post(apiUrl + 'users/removefromfavs/' + user + '/' + id, id, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
-      catchError(this.handleError)
+        map(this.extractResponseData),
+        catchError(this.handleError)
     );
   }
 
   // Non-typed response extraction
-  private extractResponseData(res: any): any {
+  private extractResponseData(res: any | object): any {
     const body = res;
-    return body || { };
+    return body || {};
   }
 
   private handleError(error: HttpErrorResponse): any {

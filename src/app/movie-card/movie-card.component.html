@@ -2,7 +2,11 @@
 <div class="movie-container">
   <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
       <mat-card-header>
-      <mat-card-title>{{movie.Title}}</mat-card-title><mat-icon class="favorite-button">favorite_border</mat-icon>
+      <mat-card-title>{{movie.Title}}</mat-card-title>
+        <div>
+        <mat-icon *ngIf="!setFaveStatus(movie._id)" (click)="addToFavoriteMoviesList(movie._id, movie.Title)" class="favorite-button">favorite_border</mat-icon>
+        <mat-icon *ngIf="setFaveStatus(movie._id)" (click)="removeFromFavorites(movie._id, movie.Title)" class="favorite-button-active">favorite</mat-icon>
+        </div>
           <mat-card-subtitle>Directed by: {{movie.director.name}}</mat-card-subtitle>
       </mat-card-header>
       <img src={{movie.imageUrl}} alt= {{movie.Title}} />
@@ -23,6 +27,7 @@
           </button>
           <button
               mat-stroked-button
+              (click)="openMovieSynopsis(movie.Title, movie.description)"
               color="primary"
           >
               Synopsis

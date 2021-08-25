@@ -30,9 +30,10 @@ export class UserLoginFormComponent implements OnInit {
       
       // Logic for successful user login
       this.dialogRef.close();
+      console.log(this.userData)
 
       // Set username and password for locall storage
-      localStorage.setItem('username', result.username);
+      localStorage.setItem('username', this.userData.Username);
       localStorage.setItem('token', result.token);
 
       // Will most likely reditrect but for now can leave a note

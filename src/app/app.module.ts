@@ -28,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MovieGenreComponent } from './movie-genre/movie-genre.component';
 import { MovieDirectorComponent } from './movie-director/movie-director.component';
+import { MovieSynopsisComponent } from './movie-synopsis/movie-synopsis.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     NavBarComponent,
     MovieGenreComponent,
-    MovieDirectorComponent
+    MovieDirectorComponent,
+    MovieSynopsisComponent
   ],
   imports: [
     BrowserModule,

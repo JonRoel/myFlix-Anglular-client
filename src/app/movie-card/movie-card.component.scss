@@ -3,6 +3,13 @@
 }
 .favorite-button {
   float:right;
+  cursor: pointer;
+}
+
+.favorite-button-active {
+  float: right;
+  color: red;
+  cursor: pointer;
 }
 .mat-card-header {
   display: flex;
