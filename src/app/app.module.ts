@@ -29,11 +29,13 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MovieGenreComponent } from './movie-genre/movie-genre.component';
 import { MovieDirectorComponent } from './movie-director/movie-director.component';
 import { MovieSynopsisComponent } from './movie-synopsis/movie-synopsis.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  { path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     NavBarComponent,
     MovieGenreComponent,
     MovieDirectorComponent,
-    MovieSynopsisComponent
+    MovieSynopsisComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

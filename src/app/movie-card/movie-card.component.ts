@@ -61,10 +61,10 @@ export class MovieCardComponent implements OnInit {
   addToFavoriteMoviesList(id: string, Title: string): void {
     this.fetchApiData.addToFavoriteMoviesList(id).subscribe((res: any) => {
       let favMovies = res.Favorites;
-
       this.snackBar.open(`${Title} has been added to favorties`, 'OK', {
         duration: 3000,
       })
+      return this.getUsersFavs();
     })
   }
 
@@ -74,6 +74,7 @@ export class MovieCardComponent implements OnInit {
      this.snackBar.open(`${Title} has been removed from favorties`, 'OK', {
        duration: 3000,
      })
+     return this.getUsersFavs();
    })
   }
 

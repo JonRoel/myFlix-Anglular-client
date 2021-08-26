@@ -21,7 +21,7 @@ export class NavBarComponent implements OnInit {
   }
   
   public getUserDetails(): void {
-    this.userDetails = JSON.parse(localStorage.getItem('user')!);
+    this.userDetails = localStorage.getItem('username');
   }
 
   signOut(): void {

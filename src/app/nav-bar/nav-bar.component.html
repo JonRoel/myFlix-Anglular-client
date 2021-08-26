@@ -2,18 +2,22 @@
   <button mat-icon-button class="icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Welcome {{ userDetails?.Username }} </span>
+  <span>Welcome {{ userDetails }} </span>
   <span class="top-nav"></span>
-  <!-- <button mat-icon-button class="icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button> -->
-  <button
-        mat-button
-        color="primary"
-      >
-        Favorites
-      </button>
-  <button
+    <button
+      mat-button
+      color="primary"
+    >
+      Favorites
+    </button>
+    <button 
+      mat-button 
+      routerLink='/profile' 
+      color='primary'
+    >
+        Profile
+    </button>
+    <button 
         mat-button
         (click)="signOut()"
         color="primary"
