@@ -37,7 +37,7 @@ export class UserLoginFormComponent implements OnInit {
       localStorage.setItem('token', result.token);
 
       // Will most likely reditrect but for now can leave a note
-      this.snackBar.open(result, 'Welcome back!', {
+      this.snackBar.open(this.userData.Username, 'Welcome back!', {
         duration: 3000
       });
       this.router.navigate(['movies']);

@@ -1,0 +1,19 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-right: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.meta {
+  color: gray;
+  font-style: italic;
+}
+.profile-pic {
+  border-radius: 75px;
+  margin:25px;
+}
+.accnt-btn {
+  margin:10px
+}

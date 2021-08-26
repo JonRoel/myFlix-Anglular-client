@@ -4,15 +4,23 @@
   </button>
   <span>Welcome {{ userDetails }} </span>
   <span class="top-nav"></span>
+  <button
+      mat-button
+      routerLink="/movies"
+      color="primary"
+    >
+      Browse Movies
+    </button>
     <button
       mat-button
+      routerLink="/favorites"
       color="primary"
     >
       Favorites
     </button>
     <button 
       mat-button 
-      routerLink='/profile' 
+      routerLink="/profile"
       color='primary'
     >
         Profile
@@ -25,3 +33,4 @@
         Log out
       </button>
 </mat-toolbar>
+
