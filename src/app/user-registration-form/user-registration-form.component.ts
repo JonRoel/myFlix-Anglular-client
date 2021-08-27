@@ -39,6 +39,7 @@ export class UserRegistrationFormComponent implements OnInit {
         duration: 3000
       });
     }, (response) => {
+      this.isLoading = false;
       this.snackBar.open(response, 'OK', {
         duration: 3000
       });
