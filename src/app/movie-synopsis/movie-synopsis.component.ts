@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, NgModule } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movie-synopsis',
@@ -8,7 +7,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./movie-synopsis.component.scss']
 })
 export class MovieSynopsisComponent implements OnInit {
-  safeSrc: SafeResourceUrl;
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public movieSynopsis: {
@@ -16,8 +14,7 @@ export class MovieSynopsisComponent implements OnInit {
       description: string;
       trailerUrl: string;
     },
-    private sanitizer: DomSanitizer
-  ) { this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(movieSynopsis.trailerUrl); }
+  ) { }
 
   
   ngOnInit(): void {

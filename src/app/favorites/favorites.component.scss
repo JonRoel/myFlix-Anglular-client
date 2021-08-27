@@ -36,10 +36,19 @@
   flex-wrap: wrap;
   margin-left:25px;
   margin-right: 25px;
+
 }
 
 .favorites-container {
   text-align: center;
+  margin:25px 0;
+  color: white;
+}
+
+mat-divider {
+  width:95%;
+  margin:0 auto;
+  padding-bottom:25px;
 }
 
 .movie-spinner {

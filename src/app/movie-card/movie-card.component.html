@@ -8,7 +8,8 @@
 <div class="movie-container">
   <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
       <mat-card-header>
-      <mat-card-title>{{movie.Title}}</mat-card-title>
+      <mat-card-title>{{movie.Title}}
+      </mat-card-title>
         <div>
         <mat-icon *ngIf="!setFaveStatus(movie._id)" (click)="addToFavoriteMoviesList(movie._id, movie.Title)" class="favorite-button">favorite_border</mat-icon>
         <mat-icon *ngIf="setFaveStatus(movie._id)" (click)="removeFromFavorites(movie._id, movie.Title)" class="favorite-button-active">favorite</mat-icon>
@@ -33,7 +34,7 @@
           </button>
           <button
               mat-stroked-button
-              (click)="openMovieSynopsis(movie.Title, movie.description)"
+              (click)="openMovieSynopsis(movie.Title, movie.description, movie.trailerUrl)"
               color="primary"
           >
               Synopsis
@@ -41,3 +42,5 @@
       </mat-card-actions>
   </mat-card>
 </div>
+
+<script src="https://www.youtibe.com/iframe_api"></script>

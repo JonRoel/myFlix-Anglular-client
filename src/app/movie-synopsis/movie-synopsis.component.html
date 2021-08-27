@@ -2,15 +2,16 @@
   <div class="genre-header">
     <h2 class="title">{{ movieSynopsis.Title }}</h2>
   </div>
-  <!-- <div>
-      <iframe width="560" height="315" 
-      [src]="movieSynopsis.trailerUrl"
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div> -->
   <div>
-    <mat-dialog-content class="genre-content">
+    <youtube-player 
+    videoId="{{movieSynopsis.trailerUrl}}" 
+    suggestedQuality="highres" 
+    [height]="325" 
+    [width]="600">
+  </youtube-player>
+  </div>
+  <div>
+    <mat-dialog-content class="synopsis-content">
       {{ movieSynopsis.description }}
     </mat-dialog-content>
   </div>

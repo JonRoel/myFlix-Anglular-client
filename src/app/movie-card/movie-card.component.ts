@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -54,9 +54,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  openMovieSynopsis(Title: string, description: string): void {
+  openMovieSynopsis(Title: string, description: string, trailerUrl: string): void {
     this.dialog.open(MovieSynopsisComponent, {
-      data: { Title, description },
+      data: { Title, description, trailerUrl },
       width: '650px'
     });
   }

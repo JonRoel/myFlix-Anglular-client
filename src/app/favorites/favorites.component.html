@@ -2,6 +2,7 @@
 <div class="favorites-container">
   <h1>Your Favorites</h1>
 </div>
+<mat-divider></mat-divider>
 <mat-spinner
       *ngIf="isLoading"
       class="movie-spinner"
@@ -36,7 +37,7 @@
           </button>
           <button
               mat-stroked-button
-              (click)="openMovieSynopsis(movies.Title, movies.description)"
+              (click)="openMovieSynopsis(movies.Title, movies.description, movies.trailerUrl)"
               color="primary"
           >
               Synopsis

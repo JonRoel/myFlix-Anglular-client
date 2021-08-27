@@ -21,6 +21,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { YouTubePlayerModule } from "@angular/youtube-player";
 
 // Components
 import { FormsModule } from '@angular/forms';
@@ -79,6 +80,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatDividerModule,
     MatProgressSpinnerModule,
+    YouTubePlayerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

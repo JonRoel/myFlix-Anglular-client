@@ -5,6 +5,14 @@
   margin-right: 25px;
   flex-wrap: wrap;
   align-items: center;
+  background-color: white;
+  margin: 0 auto;
+  width:80%;
+  border: 1px solid #375869;
+  -webkit-box-shadow: 0px 8px 30px 5px rgba(0,0,0,0.44); 
+  box-shadow: 0px 8px 30px 5px rgba(0,0,0,0.44);
+  height:100vh;
+
 }
 .meta {
   color: gray;
