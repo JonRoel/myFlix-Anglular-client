@@ -3,34 +3,16 @@
   margin-left: 25px;
   margin-right:25px;
 }
+// dark gray #375869
 
-mat-sidenav {
-  margin: 16px;
-  width: 270px;
-  border-right: none;
-  background-color: #2c2c2c;
-  color: #fff;
-  border-radius: 13px;
-  padding:16px;
-  text-align:center;
+.nav-btn {
+  color:#fff;
+  font-weight: 400;
+  letter-spacing: 0.1em;
 }
 
-.profile-container-content {
-  height: calc(100vh - 98px);
-  margin: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  color:white;
-}
-
-.avatar {
-  border-radius:75px;
-  margin: 18px 0;
-}
-
-mat-sidenav-container {
-  height: calc(100vh - 65px);
- 
+mat-toolbar {
+  background-color: #375869;
+  color:#fff;
+  padding-left:35px;
 }

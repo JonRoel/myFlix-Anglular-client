@@ -1,7 +1,13 @@
 <app-nav-bar></app-nav-bar>
 <div class="favorites-container">
-  <h2>Your Favorites</h2>
+  <h1>Your Favorites</h1>
 </div>
+<mat-spinner
+      *ngIf="isLoading"
+      class="movie-spinner"
+      color="primary"
+      diameter="80"
+    ></mat-spinner>
 <div class="movie-container">
   <mat-card *ngFor="let movies of favorites;" style="flex: 1 1 auto;">
       <mat-card-header>

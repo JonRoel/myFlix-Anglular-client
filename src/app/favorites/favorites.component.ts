@@ -14,6 +14,7 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
+  isLoading = false;
   user: any = {};
   favorites: any = [];
   movies: any[] = [];
@@ -48,18 +49,21 @@ export class FavoritesComponent implements OnInit {
   }
 
   getMovies(): void {
+    this.isLoading = true;
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.isLoading = false;
       this.movies = resp;
       console.log(this.movies);
       return this.filterFavorites();
+      //return this.filterFavorites();
     });
   }
 
   filterFavorites(): void {
-    this.movies.forEach((movies: any) => {
-      if (this.faves.includes(movies._id)) {
-        this.favorites.push(movies);
-      } console.log(this.favorites)
+    this.movies.forEach((movie: any) => {
+      if (this.faves.includes(movie._id)) {
+        this.favorites.push(movie);
+      }console.log(this.favorites);
     });
     return this.favorites;
   }
@@ -107,8 +111,6 @@ export class FavoritesComponent implements OnInit {
      return this.getUsersFavs();
    })
   }
-
-  
 
   setFaveStatus(id: any): any {
     if (this.faves.includes(id)) {

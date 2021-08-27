@@ -1,3 +1,7 @@
+.mat-body, .mat-body-1, .mat-typography {
+  background-color: #567280;
+}
+
 .mat-card {
   min-width:260px;
   max-width: 275px;
@@ -33,6 +37,11 @@
   flex-wrap: wrap;
   margin-left:25px;
   margin-right: 25px;
+}
+
+.movie-spinner {
+  margin: 0 auto;
+  margin-top:50px;
 }
 
 ::ng-deep .mat-card-header-text {

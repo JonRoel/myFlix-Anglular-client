@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login-form.component.scss']
 })
 export class UserLoginFormComponent implements OnInit {
+  isLoading = false;
 
   @Input() userData = { 
     Username: '', 
@@ -26,8 +27,9 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void { }
   // Function to send the form inputs to the Database
   userLogin(): void {
+    this.isLoading = true;
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
-      
+      this.isLoading = false;
       // Logic for successful user login
       this.dialogRef.close();
       console.log(this.userData)

@@ -34,9 +34,13 @@ export class FetchApiDataService {
   }
 
   // Delete user profile
-  public deleteUser(userData: any): Observable<any> {
-    console.log(userData);
-    return this.http.delete(apiUrl + 'users/:Username', userData).pipe(
+  public deleteUser(): Observable<any> {
+    const user = localStorage.getItem('username');
+    const token = localStorage.getItem('token');
+    return this.http.delete(apiUrl + 'users/' + user, {headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })}).pipe(
     catchError(this.handleError)
     );
   }
@@ -66,9 +70,10 @@ export class FetchApiDataService {
   }
 
   // Edit User
-  editUserProfile(): Observable<any> {
+  editUserProfile(userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'userupdate/:Username', {headers: new HttpHeaders(
+    const user = localStorage.getItem('username');
+    return this.http.put(apiUrl + 'userupdate/' + user, userDetails, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(

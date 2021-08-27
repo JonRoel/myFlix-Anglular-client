@@ -1,17 +1,16 @@
 <mat-toolbar>
-  <button mat-icon-button class="icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
   <span>Welcome {{ userDetails }} </span>
   <span class="top-nav"></span>
   <button
-      mat-button
-      routerLink="/movies"
-      color="primary"
+    class="nav-btn"
+    mat-button
+    routerLink="/movies"
+    color="primary"
     >
       Browse Movies
     </button>
     <button
+      class="nav-btn"
       mat-button
       routerLink="/favorites"
       color="primary"
@@ -19,6 +18,7 @@
       Favorites
     </button>
     <button 
+      class="nav-btn"
       mat-button 
       routerLink="/profile"
       color='primary'
@@ -26,10 +26,11 @@
         Profile
     </button>
     <button 
-        mat-button
-        (click)="signOut()"
-        color="primary"
-      >
+      class="nav-btn"
+      mat-button
+      (click)="signOut()"
+      color="primary"
+    >
         Log out
       </button>
 </mat-toolbar>

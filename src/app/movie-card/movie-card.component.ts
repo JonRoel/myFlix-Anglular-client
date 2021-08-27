@@ -15,9 +15,10 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
 })
 
 export class MovieCardComponent implements OnInit {
-  movies: any[] = []
-  faves: any[] = []
-  
+  isLoading = false;
+  movies: any[] = [];
+  faves: any[] = [];
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -30,7 +31,9 @@ export class MovieCardComponent implements OnInit {
   }
 
   getMovies(): void {
+    this.isLoading = true;
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.isLoading = false;
       this.movies = resp;
       console.log(this.movies);
       return this.movies;

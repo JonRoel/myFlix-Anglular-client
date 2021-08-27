@@ -3,16 +3,15 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-@Component({ 
-  selector: 'app-user-registration-form', 
-  templateUrl: './user-registration-form.component.html',
-  styleUrls: ['./user-registration-form.component.scss']
+@Component({
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.scss']
 })
-
-export class UserRegistrationFormComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
   isLoading = false;
 
-  @Input() userData = { 
+  @Input() userDetails = { 
     Username: '', 
     Password: '', 
     Email: '', 
@@ -21,27 +20,30 @@ export class UserRegistrationFormComponent implements OnInit {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
+    public dialogRef: MatDialogRef<EditProfileComponent>,
     public snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void { }
 
   // Function to send the form inputs to the Database
-  registerUser(): void {
+  updateUser(): void {
     this.isLoading = true;
-    this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
+    this.fetchApiData.editUserProfile(this.userDetails).subscribe((res) => {
       this.isLoading = false; 
-      // Logic for successful user registration
       this.dialogRef.close();
-      console.log(response)
-      this.snackBar.open(this.userData.Username, 'Successfully Registered you can now login!', {
+      localStorage.setItem('username', res.Username)
+      console.log(res)
+      this.snackBar.open(this.userDetails.Username, 'Successfully updated user details!', {
         duration: 3000
       });
-    }, (response) => {
-      this.snackBar.open(response, 'OK', {
+    }, (res) => {
+      this.snackBar.open(res, 'OK', {
         duration: 3000
       });
+      setTimeout(function () {
+        window.location.reload();
+       }, 3500);
     })
   }
 }

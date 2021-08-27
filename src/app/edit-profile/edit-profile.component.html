@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- src/app/user-registration-form/user-registration-form.component.html -->
+
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Welcome Back</mat-card-title>
+    <mat-card-title>Update Account Details</mat-card-title>
   </mat-card-header>
   <mat-spinner
       *ngIf="isLoading"
@@ -14,24 +14,43 @@
   *ngIf="!isLoading"
   >
     <form>
-      <mat-form-field>
+      <!-- <mat-form-field>
         <input
           matInput
-          [(ngModel)]="userData.Username" 
+          [(ngModel)]="userDetails.Username" 
           placeholder="Username"
           type="text"
           name="Username"
           required
         >
-        </mat-form-field>
+        </mat-form-field> -->
         <mat-form-field>
         <input
           matInput
-          [(ngModel)]="userData.Password"
+          [(ngModel)]="userDetails.Password"
           type = "password"
           placeholder="Password"
           name="Password"
           required
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="userDetails.Email"
+          type = "email"
+          placeholder="Email"
+          name="Email"
+          required
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="userDetails.Birthday"
+          type = "date"
+          placeholder="Birthday"  
+          name="Birthday"
         >
       </mat-form-field>
     </form>
@@ -39,10 +58,11 @@
   <mat-card-actions>
       <button
         mat-raised-button
-        (click)="userLogin()"
         color="primary"
+        (click)="updateUser()"
       >
-        Login
+        Submit
       </button>
   </mat-card-actions>
 </mat-card>
+

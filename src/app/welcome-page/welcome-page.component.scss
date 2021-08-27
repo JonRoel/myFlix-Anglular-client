@@ -1,0 +1,28 @@
+html, body {
+  background-color: #567280;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  background-color: white;
+  border: 1px solid rgb(5, 52, 68);
+  border-radius: 13px;
+  margin: 20% auto;
+  padding:35px;
+}
+
+.welcome-button {
+  width:80%;
+  margin: 10px;
+}

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 // Angular Material Components
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // Components
 import { FormsModule } from '@angular/forms';
@@ -33,6 +35,7 @@ import { MovieDirectorComponent } from './movie-director/movie-director.componen
 import { MovieSynopsisComponent } from './movie-synopsis/movie-synopsis.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -55,6 +58,7 @@ const appRoutes: Routes = [
     MovieSynopsisComponent,
     ProfileComponent,
     FavoritesComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,7 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatSidenavModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,10 @@
 <app-nav-bar></app-nav-bar>
+<mat-spinner
+      *ngIf="isLoading"
+      class="movie-spinner"
+      color="primary"
+      diameter="80"
+    ></mat-spinner>
 <div class="movie-container">
   <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
       <mat-card-header>

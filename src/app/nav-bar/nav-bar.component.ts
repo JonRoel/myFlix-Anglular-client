@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -25,7 +25,7 @@ export class NavBarComponent implements OnInit {
   }
 
   signOut(): void {
-    localStorage.clear;
+    localStorage.clear();
     this.router.navigate(['welcome']);
     this.snackBar.open('Logout successful!', 'OK', {
       duration: 3000
