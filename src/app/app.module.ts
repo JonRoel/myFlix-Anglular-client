@@ -38,6 +38,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
+/**
+ * Set url routes
+*/
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },

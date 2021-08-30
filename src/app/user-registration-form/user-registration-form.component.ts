@@ -12,6 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UserRegistrationFormComponent implements OnInit {
   isLoading = false;
 
+  /**
+   * Required form fiels for user registration
+  */
   @Input() userData = { 
     Username: '', 
     Password: '', 
@@ -27,7 +30,9 @@ export class UserRegistrationFormComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  // Function to send the form inputs to the Database
+  /**
+   * Register a new user and saves credentials to database
+  */
   registerUser(): void {
     this.isLoading = true;
     this.fetchApiData.userRegistration(this.userData).subscribe((response) => {

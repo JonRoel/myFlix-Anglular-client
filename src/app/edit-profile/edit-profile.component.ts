@@ -11,6 +11,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class EditProfileComponent implements OnInit {
   isLoading = false;
 
+  /**
+   * Params for updating user, Username cannot be updated
+  */
   @Input() userDetails = { 
     Username: '', 
     Password: '', 
@@ -26,7 +29,9 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  // Function to send the form inputs to the Database
+  /**
+   * Update user details
+  */
   updateUser(): void {
     this.isLoading = true;
     this.fetchApiData.editUserProfile(this.userDetails).subscribe((res) => {

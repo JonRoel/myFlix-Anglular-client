@@ -14,17 +14,7 @@
   *ngIf="!isLoading"
   >
     <form>
-      <!-- <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="userDetails.Username" 
-          placeholder="Username"
-          type="text"
-          name="Username"
-          required
-        >
-        </mat-form-field> -->
-        <mat-form-field>
+      <mat-form-field>
         <input
           matInput
           [(ngModel)]="userDetails.Password"
@@ -56,13 +46,13 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="updateUser()"
-      >
-        Submit
-      </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="updateUser()"
+    >
+      Submit
+    </button>
   </mat-card-actions>
 </mat-card>
 

@@ -54,18 +54,20 @@ export class FavoritesComponent implements OnInit {
       this.isLoading = false;
       this.movies = resp;
       console.log(this.movies);
-      return this.filterFavorites();
-      //return this.filterFavorites();
+      return this.filterFavorites(); // Calls the filter function when calling movies to show only favorites
     });
   }
 
+  /**
+   * Filters movies to display only the users favorites
+  */
   filterFavorites(): void {
     this.movies.forEach((movie: any) => {
       if (this.faves.includes(movie._id)) {
         this.favorites.push(movie);
       }console.log(this.favorites);
     });
-    return this.favorites;
+    return this.favorites; // Calls a reload for a dynamic removal from list
   }
 
   openGenre(name: string, description: string): void {
@@ -112,6 +114,9 @@ export class FavoritesComponent implements OnInit {
    })
   }
 
+  /**
+   * Allows for dynamic loading of favorites icon to display on/off of favorites
+  */
   setFaveStatus(id: any): any {
     if (this.faves.includes(id)) {
       return true;

@@ -20,6 +20,9 @@ export class NavBarComponent implements OnInit {
     this.getUserDetails()
   }
   
+  /**
+   * Gets user details, used to display username in the nav bar
+  */
   public getUserDetails(): void {
     this.userDetails = localStorage.getItem('username');
   }

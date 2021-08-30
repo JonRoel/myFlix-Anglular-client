@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class UserLoginFormComponent implements OnInit {
   isLoading = false;
-
+  
+  /**
+   * Form inputs required for login
+  */
   @Input() userData = { 
     Username: '', 
     Password: '',
@@ -25,7 +28,9 @@ export class UserLoginFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { }
-  // Function to send the form inputs to the Database
+  /**
+   * Uses form details to login
+  */
   userLogin(): void {
     this.isLoading = true;
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
